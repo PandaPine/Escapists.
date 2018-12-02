@@ -26,9 +26,11 @@ public class The_Escapists extends JFrame implements Runnable {
     Image image;
     Graphics2D g;
     
-    int changed;
-    //eufhuwirhgu
+    int mouseXPos;
+    int mouseYPos;
 
+    Player player = new Player(Toolkit.getDefaultToolkit().getImage("./Character Face Up.png"));
+    
     static The_Escapists frame;
     public static void main(String[] args) {
         frame = new The_Escapists();
@@ -46,8 +48,8 @@ public class The_Escapists extends JFrame implements Runnable {
                     //left button
 
 // location of the cursor.
-                    int xpos = e.getX();
-                    int ypos = e.getY();                                        
+                    mouseXPos = e.getX();
+                    mouseYPos = e.getY();                                        
                 
                 }
                 if (e.BUTTON3 == e.getButton()) {
@@ -125,8 +127,6 @@ public class The_Escapists extends JFrame implements Runnable {
             gOld.drawImage(image, 0, 0, null);
             return;
         }
-
-        
         g.setColor(Color.gray);
 //horizontal lines
         for (int zi=1;zi<Map.numRows;zi++)
@@ -158,6 +158,7 @@ public class The_Escapists extends JFrame implements Runnable {
                 }
             }
         }
+        player.Draw();
         gOld.drawImage(image, 0, 0, null);
     }
 
