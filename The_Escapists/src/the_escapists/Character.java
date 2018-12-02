@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package the_escapists;
+
+import java.awt.Graphics2D;
 import java.awt.Image;
 
 public class Character {
@@ -18,7 +20,7 @@ public class Character {
         xPos+=xChange;
         yPos+=yChange;
     }
-    public void Draw(){
-        Drawing.drawImage(image, xPos, yPos, 50, 100, 0, 1, 1);
+    public void Draw(Graphics2D g, The_Escapists frame,int width, int height){
+                g.drawImage(image,xPos,yPos,width,height, frame);
     }
 }
